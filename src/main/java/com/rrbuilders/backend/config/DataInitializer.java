@@ -87,13 +87,13 @@ public class DataInitializer implements CommandLineRunner {
                         .location("Vijay Nagar, Indore")
                         .type("Commercial (Hotel) · G+4 (3,000 sq.ft.)")
                         .category("Commercial")
-                        .status("Completed")
+                        .status("Ongoing")
                         .price(null)
                         .image("/projects/rr-hotel-commercial-hub.jpg")
                         .description("A landmark G+4 commercial hotel development spanning 3,000 sq.ft. in Vijay Nagar, Indore. Features 34 well-ventilated rooms, grand reception lobby, office, commercial kitchen, and earthquake-resistant RCC construction.")
                         .crop("crop-project-3")
                         .overviewTitle("Designed for Better Hospitality & Business")
-                        .overviewText("Positioned strategically in Vijay Nagar, this completed commercial hotel project combines functional hospitality architecture with robust structural execution. Built across Ground + 4 floors on a 3,000 sq.ft. plot, it provides an ideal turnkey layout for hotel operations, corporate stays, or commercial hospitality ventures with maximum footfall connectivity.")
+                        .overviewText("Positioned strategically in Vijay Nagar, this ongoing commercial hotel development combines functional hospitality architecture with robust structural execution. Built across Ground + 4 floors on a 3,000 sq.ft. plot, it provides an ideal turnkey layout for hotel operations, corporate stays, or commercial hospitality ventures with maximum footfall connectivity.")
                         .floorLayoutText("34 Bright rooms with cross ventilation, Spacious office & commercial kitchen, Reception & lobby area, Attached washrooms and private balconies, Secure boundary wall, Rainwater harvesting & recharge system, Certified earthing work, Dedicated on-site parking.")
                         .materialsText("Earthquake-resistant RCC frame structure, Premium vitrified tiles & granite flooring, Large heavy-duty iron main door, Modern glass partition, Premium flush doors & windows, Branded CPVC plumbing fittings, Branded durable weather-proof paint.")
                         .hideAmenities(true)
@@ -107,9 +107,9 @@ public class DataInitializer implements CommandLineRunner {
                         .category("Residential")
                         .status("Completed")
                         .price(null)
-                        .image("/projects/rr-villa-omaxe-1.jpg")
+                        .image("/projects/rr-villa-omaxe-1-v2.jpg")
                         .images(List.of(
-                                "/projects/rr-villa-omaxe-1.jpg"
+                                "/projects/rr-villa-omaxe-1-v2.jpg"
                         ))
                         .videos(List.of())
                         .description("A prestigious 5 BHK residential villa spanning 1,500 sq.ft. in the landmark township of Omaxe 1, Bypass Indore. Built with earthquake-resistant RCC structure, modular kitchen, private garden, Sagwan woodwork, and modern rainwater harvesting.")
