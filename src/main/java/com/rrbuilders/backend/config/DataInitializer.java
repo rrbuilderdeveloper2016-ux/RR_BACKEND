@@ -107,17 +107,12 @@ public class DataInitializer implements CommandLineRunner {
                         .category("Residential")
                         .status("Completed")
                         .price(null)
-                        .image("/projects/rr-villa-omaxe-1-1.jpg")
+                        .image("/projects/rr-villa-omaxe-1.jpg")
                         .images(List.of(
-                                "/projects/rr-villa-omaxe-1-1.jpg",
-                                "/projects/rr-villa-omaxe-1-2.jpg",
-                                "/projects/rr-villa-omaxe-1-3.jpg"
+                                "/projects/rr-villa-omaxe-1.jpg",
+                                "/projects/rr-grand-villa-elevation.jpg"
                         ))
-                        .videos(List.of(
-                                "/videos/r1.mp4",
-                                "/videos/r2.mp4",
-                                "/videos/r3.mp4"
-                        ))
+                        .videos(List.of())
                         .description("A prestigious 5 BHK residential villa spanning 1,500 sq.ft. in the landmark township of Omaxe 1, Bypass Indore. Built with earthquake-resistant RCC structure, modular kitchen, private garden, Sagwan woodwork, and modern rainwater harvesting.")
                         .crop("crop-project-2")
                         .overviewTitle("Designed for Better Living & Family Comfort")
@@ -139,9 +134,15 @@ public class DataInitializer implements CommandLineRunner {
                         .images(List.of(
                                 "/projects/rr-grand-villa-render.jpg",
                                 "/projects/rr-grand-villa-banner.jpg",
-                                "/projects/rr-grand-villa-elevation.jpg"
+                                "/projects/rr-villa-omaxe-1-1.jpg",
+                                "/projects/rr-villa-omaxe-1-2.jpg",
+                                "/projects/rr-villa-omaxe-1-3.jpg"
                         ))
-                        .videos(List.of())
+                        .videos(List.of(
+                                "/videos/r1.mp4",
+                                "/videos/r2.mp4",
+                                "/videos/r3.mp4"
+                        ))
                         .description("An ultra-spacious 5 BHK luxury residential villa spanning 5,300 sq.ft. currently under active development at prime A.B. Bypass, Indore. Features expansive floor circulation, earthquake-resistant RCC structure, Sagwan woodwork, private garden, and modern rainwater harvesting.")
                         .crop("crop-project-1")
                         .overviewTitle("Expansive 5,300 Sq.Ft. Luxury Living on A.B. Bypass")
