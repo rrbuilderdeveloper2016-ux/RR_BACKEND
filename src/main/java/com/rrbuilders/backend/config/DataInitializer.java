@@ -68,89 +68,94 @@ public class DataInitializer implements CommandLineRunner {
     }
 
     private void seedProjects() {
-        if (projectRepository.count() == 0) {
-            log.info("Seeding initial projects into RRBuilder_DB...");
-            List<String> amenities = List.of(
-                    "Landscaped gardens", "24×7 security", "Covered parking",
-                    "Children's play area", "Power backup", "Community spaces"
-            );
+        // Remove previous dummy testing projects if they exist in DB
+        List<String> dummyIds = List.of(
+                "rr-shree-residency", "rr-green-villas", "rr-business-hub",
+                "rr-premium-plots", "rr-orchid-heights", "rr-corporate-square"
+        );
+        for (String dummyId : dummyIds) {
+            if (projectRepository.existsById(dummyId)) {
+                projectRepository.deleteById(dummyId);
+                log.info("Removed dummy testing project from DB: {}", dummyId);
+            }
+        }
 
-            List<Project> projects = List.of(
-                    Project.builder()
-                            .id("rr-shree-residency")
-                            .name("RR Shree Residency")
-                            .location("Super Corridor, Indore")
-                            .type("2 & 3 BHK Apartments")
-                            .category("Residential")
-                            .status("Ongoing")
-                            .price("₹42 Lakh onwards")
-                            .description("Contemporary homes with thoughtful amenities near Indore's fastest-growing corridor.")
-                            .crop("crop-project-1")
-                            .amenities(amenities)
-                            .build(),
-                    Project.builder()
-                            .id("rr-green-villas")
-                            .name("RR Green Villas")
-                            .location("Bicholi Mardana, Indore")
-                            .type("3 & 4 BHK Villas")
-                            .category("Residential")
-                            .status("Upcoming")
-                            .price("₹1.25 Cr onwards")
-                            .description("Private villas shaped around landscaped greens, natural light and family living.")
-                            .crop("crop-project-2")
-                            .amenities(amenities)
-                            .build(),
-                    Project.builder()
-                            .id("rr-business-hub")
-                            .name("RR Business Hub")
-                            .location("Vijay Nagar, Indore")
-                            .type("Shops & Office Spaces")
-                            .category("Commercial")
-                            .status("Ongoing")
-                            .price("₹55 Lakh onwards")
-                            .description("A high-visibility business address with efficient floor plates and modern facilities.")
-                            .crop("crop-project-3")
-                            .amenities(amenities)
-                            .build(),
-                    Project.builder()
-                            .id("rr-premium-plots")
-                            .name("RR Premium Plots")
-                            .location("Rau, Indore")
-                            .type("Residential Plots")
-                            .category("Plots")
-                            .status("Ongoing")
-                            .price("₹28 Lakh onwards")
-                            .description("Well-planned residential plots with strong connectivity and essential infrastructure.")
-                            .crop("crop-project-1")
-                            .amenities(amenities)
-                            .build(),
-                    Project.builder()
-                            .id("rr-orchid-heights")
-                            .name("RR Orchid Heights")
-                            .location("Nipania, Indore")
-                            .type("2 & 3 BHK Apartments")
-                            .category("Residential")
-                            .status("Completed")
-                            .price("₹48 Lakh onwards")
-                            .description("Move-in-ready apartments combining modern convenience with a calm neighbourhood.")
-                            .crop("crop-project-2")
-                            .amenities(amenities)
-                            .build(),
-                    Project.builder()
-                            .id("rr-corporate-square")
-                            .name("RR Corporate Square")
-                            .location("AB Road, Indore")
-                            .type("Premium Offices")
-                            .category("Commercial")
-                            .status("Completed")
-                            .price("₹62 Lakh onwards")
-                            .description("Professional workspaces designed for ambitious businesses on a landmark corridor.")
-                            .crop("crop-project-3")
-                            .amenities(amenities)
-                            .build()
-            );
-            projectRepository.saveAll(projects);
-            log.info("Seeded {} projects.", projects.size());
+        List<Project> projects = List.of(
+                Project.builder()
+                        .id("rr-hotel-commercial-hub")
+                        .name("RR Commercial Hotel Landmark")
+                        .location("Vijay Nagar, Indore")
+                        .type("Commercial (Hotel) · G+4 (3,000 sq.ft.)")
+                        .category("Commercial")
+                        .status("Completed")
+                        .price(null)
+                        .image("/projects/rr-hotel-commercial-hub.jpg")
+                        .description("A landmark G+4 commercial hotel development spanning 3,000 sq.ft. in Vijay Nagar, Indore. Features 34 well-ventilated rooms, grand reception lobby, office, commercial kitchen, and earthquake-resistant RCC construction.")
+                        .crop("crop-project-3")
+                        .overviewTitle("Designed for Better Hospitality & Business")
+                        .overviewText("Positioned strategically in Vijay Nagar, this completed commercial hotel project combines functional hospitality architecture with robust structural execution. Built across Ground + 4 floors on a 3,000 sq.ft. plot, it provides an ideal turnkey layout for hotel operations, corporate stays, or commercial hospitality ventures with maximum footfall connectivity.")
+                        .floorLayoutText("34 Bright rooms with cross ventilation, Spacious office & commercial kitchen, Reception & lobby area, Attached washrooms and private balconies, Secure boundary wall, Rainwater harvesting & recharge system, Certified earthing work, Dedicated on-site parking.")
+                        .materialsText("Earthquake-resistant RCC frame structure, Premium vitrified tiles & granite flooring, Large heavy-duty iron main door, Modern glass partition, Premium flush doors & windows, Branded CPVC plumbing fittings, Branded durable weather-proof paint.")
+                        .hideAmenities(true)
+                        .amenities(List.of())
+                        .build(),
+                Project.builder()
+                        .id("rr-villa-omaxe-1")
+                        .name("RR Luxury Villa Omaxe 1")
+                        .location("Omaxe 1, Bypass Indore")
+                        .type("5 BHK Villa · 1,500 sq.ft.")
+                        .category("Residential")
+                        .status("Completed")
+                        .price(null)
+                        .image("/projects/rr-villa-omaxe-1-1.jpg")
+                        .images(List.of(
+                                "/projects/rr-villa-omaxe-1-1.jpg",
+                                "/projects/rr-villa-omaxe-1-2.jpg",
+                                "/projects/rr-villa-omaxe-1-3.jpg"
+                        ))
+                        .videos(List.of(
+                                "/videos/r1.mp4",
+                                "/videos/r2.mp4",
+                                "/videos/r3.mp4"
+                        ))
+                        .description("A prestigious 5 BHK residential villa spanning 1,500 sq.ft. in the landmark township of Omaxe 1, Bypass Indore. Built with earthquake-resistant RCC structure, modular kitchen, private garden, Sagwan woodwork, and modern rainwater harvesting.")
+                        .crop("crop-project-2")
+                        .overviewTitle("Designed for Better Living & Family Comfort")
+                        .overviewText("Located in the elite gated environment of Omaxe 1 along Indore Bypass, this completed 5 BHK luxury villa provides exceptional functional circulation, natural cross-ventilation, and privacy for multi-generational family living with rapid connectivity to the city.")
+                        .floorLayoutText("Bright rooms with cross ventilation, Functional family circulation, Modern modular kitchen & dining spaces, Private balcony area & landscaped garden, Dedicated parking & secure boundary wall, Rainwater harvesting & ground recharge system, Certified electrical earthing work.")
+                        .materialsText("Earthquake-resistant RCC frame structure, Premium vitrified tiles & natural granite flooring, Premium Sagwan (teak wood) main door & designer flush doors, Gypsum POP & designer PVC POP ceiling work, Branded CPVC plumbing fittings, Premium Domal windows with granite framing, Durable weather-proof external paint.")
+                        .hideAmenities(true)
+                        .amenities(List.of())
+                        .build(),
+                Project.builder()
+                        .id("rr-grand-villa-ab-bypass")
+                        .name("RR Grand Luxury Villa")
+                        .location("A.B. Bypass, Indore")
+                        .type("5 BHK Villa · 5,300 sq.ft.")
+                        .category("Residential")
+                        .status("Ongoing")
+                        .price(null)
+                        .image("/projects/rr-grand-villa-render.jpg")
+                        .images(List.of(
+                                "/projects/rr-grand-villa-render.jpg",
+                                "/projects/rr-grand-villa-banner.jpg",
+                                "/projects/rr-grand-villa-elevation.jpg"
+                        ))
+                        .videos(List.of())
+                        .description("An ultra-spacious 5 BHK luxury residential villa spanning 5,300 sq.ft. currently under active development at prime A.B. Bypass, Indore. Features expansive floor circulation, earthquake-resistant RCC structure, Sagwan woodwork, private garden, and modern rainwater harvesting.")
+                        .crop("crop-project-1")
+                        .overviewTitle("Expansive 5,300 Sq.Ft. Luxury Living on A.B. Bypass")
+                        .overviewText("Strategically located along the high-growth corridor of A.B. Bypass in Indore, this ongoing 5,300 sq.ft. 5 BHK luxury villa is being constructed with uncompromising structural integrity, generous family circulation, and bespoke architectural detailing.")
+                        .floorLayoutText("Expansive 5 BHK layout with dedicated servant quarters, Double-height living & formal dining rooms, Modern modular kitchen with separate store & utility, Private landscaped lawns & expansive open terrace, Wide balconies with cross ventilation, Dedicated covered parking & security boundary wall, Rainwater harvesting & groundwater recharge system, Certified multi-stage electrical earthing work.")
+                        .materialsText("Earthquake-resistant RCC frame structure with high-grade Fe550 steel, Premium vitrified tiles & natural Italian/granite finishes, Hand-crafted Sagwan (teak wood) main entrance & designer doors, Designer Gypsum & moisture-resistant PVC POP ceilings, Branded CPVC concealed plumbing & sanitary fittings, Heavy-duty Domal aluminium windows with granite sill framing, All-weather exterior acrylic protective coating.")
+                        .hideAmenities(true)
+                        .amenities(List.of())
+                        .build()
+        );
+
+        for (Project project : projects) {
+            projectRepository.save(project);
+            log.info("Seeded project: {}", project.getName());
         }
     }
 

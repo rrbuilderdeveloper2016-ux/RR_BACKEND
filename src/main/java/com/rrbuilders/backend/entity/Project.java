@@ -38,9 +38,36 @@ public class Project {
 
     private String crop;
 
+    private String image;
+
+    private String overviewTitle;
+
+    @Column(columnDefinition = "TEXT")
+    private String overviewText;
+
+    @Column(columnDefinition = "TEXT")
+    private String floorLayoutText;
+
+    @Column(columnDefinition = "TEXT")
+    private String materialsText;
+
+    private Boolean hideAmenities;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "project_amenities", joinColumns = @JoinColumn(name = "project_id"))
     @Column(name = "amenity")
     @Builder.Default
     private List<String> amenities = new ArrayList<>();
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "project_images", joinColumns = @JoinColumn(name = "project_id"))
+    @Column(name = "image_url")
+    @Builder.Default
+    private List<String> images = new ArrayList<>();
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "project_videos", joinColumns = @JoinColumn(name = "project_id"))
+    @Column(name = "video_url")
+    @Builder.Default
+    private List<String> videos = new ArrayList<>();
 }

@@ -47,12 +47,12 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         // Public endpoints: Property exploration, Projects, Locations
-                        .requestMatchers(HttpMethod.GET, "/api/properties/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/projects/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/locations/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/properties", "/api/properties/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/projects", "/api/projects/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/locations", "/api/locations/**").permitAll()
 
                         // Public inquiry submission (anyone can submit an inquiry/requirement)
-                        .requestMatchers(HttpMethod.POST, "/api/inquiries/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/inquiries", "/api/inquiries/**").permitAll()
 
                         // Public auth login
                         .requestMatchers("/api/auth/login").permitAll()
