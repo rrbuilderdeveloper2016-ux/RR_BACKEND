@@ -168,7 +168,7 @@ public class DataInitializer implements CommandLineRunner {
             List<Property> properties = List.of(
                     Property.builder()
                             .id("rr-shree-residency")
-                            .name("RR Shree Residency")
+                            .name("Shree Residency")
                             .location("Super Corridor, Indore")
                             .locationSlug("super-corridor")
                             .bhk("2 & 3 BHK")
@@ -187,7 +187,7 @@ public class DataInitializer implements CommandLineRunner {
                             .build(),
                     Property.builder()
                             .id("rr-green-villas")
-                            .name("RR Green Villas")
+                            .name("Green Villas")
                             .location("Bicholi Mardana, Indore")
                             .locationSlug("bicholi-mardana")
                             .bhk("3 & 4 BHK")
@@ -206,7 +206,7 @@ public class DataInitializer implements CommandLineRunner {
                             .build(),
                     Property.builder()
                             .id("rr-business-hub")
-                            .name("RR Business Hub")
+                            .name("Business Hub")
                             .location("Vijay Nagar, Indore")
                             .locationSlug("vijay-nagar")
                             .bhk("Shops & Offices")
@@ -225,7 +225,7 @@ public class DataInitializer implements CommandLineRunner {
                             .build(),
                     Property.builder()
                             .id("rr-orchid-heights")
-                            .name("RR Orchid Heights")
+                            .name("Orchid Heights")
                             .location("Nipania, Indore")
                             .locationSlug("nipania")
                             .bhk("2 & 3 BHK")
@@ -244,7 +244,7 @@ public class DataInitializer implements CommandLineRunner {
                             .build(),
                     Property.builder()
                             .id("rr-premium-plots")
-                            .name("RR Premium Plots")
+                            .name("Premium Plots")
                             .location("Rau, Indore")
                             .locationSlug("rau")
                             .bhk("Residential Plots")
@@ -263,7 +263,7 @@ public class DataInitializer implements CommandLineRunner {
                             .build(),
                     Property.builder()
                             .id("rr-corporate-square")
-                            .name("RR Corporate Square")
+                            .name("Corporate Square")
                             .location("AB Road, Indore")
                             .locationSlug("ab-road")
                             .bhk("Premium Offices")
